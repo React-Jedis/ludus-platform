@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Layout from './Layout';
+import Layout from './components/Layout';
 import DrawerContext from './context/DrawerContext';
 
 function App() {
