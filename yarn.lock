@@ -1020,6 +1020,18 @@
     lodash "^4.17.13"
     to-fast-properties "^2.0.0"
 
+"@bit/dastag.ui-components.backdrop@0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/dastag.ui-components.backdrop/-/dastag.ui-components.backdrop-0.0.1.tgz#1e9407cc7d579f6411be9ff89879cf6c5df11dc5"
+  integrity sha1-HpQHzH1Xn2QRvp/4mHnPbF3xHcU=
+
+"@bit/dastag.ui-components.side-drawer@^0.0.1":
+  version "0.0.1"
+  resolved "https://node.bit.dev/dastag.ui-components.side-drawer/-/dastag.ui-components.side-drawer-0.0.1.tgz#fd318a93c045599612466d68cbc256e1ab5a2e07"
+  integrity sha1-/TGKk8BFWZYSRm1oy8JW4ataLgc=
+  dependencies:
+    "@bit/dastag.ui-components.backdrop" "0.0.1"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
