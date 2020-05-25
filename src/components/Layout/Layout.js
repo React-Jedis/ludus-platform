@@ -1,10 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import ReactMarkdown from 'react-markdown';
+import mdTest from '../../markdown/MDTEST.md';
+import emoji from 'emoji-dictionary';
 import Drawer from '../Drawer';
 import Header from '../Header';
 
 const Layout = () => {
+  const [mdTestSource, setMdTestSource] = useState('');
+  useEffect(() => {
+    fetch(mdTest)
+      .then((source) => source.text())
+      .then((source) =>
+        source.replace(/:\w+:/gi, (name) => emoji.getUnicode(name))
+      )
+      .then((source) => setMdTestSource(source));
+  }, []);
+
   return (
-    <div className="flex-col h-screen text-white">
+    <div className="flex-col text-white">
       <Drawer
         options={[
           'Introduction',
@@ -15,23 +28,10 @@ const Layout = () => {
         ]}
       />
       <Header title="CSS Grid Fundamentals" />
-      <div className="bg-corporative-8 h-full">
-        <div className="p-4 text-gray-200">
-          <span className="text-xl">Introduction</span>
-          <p className="mt-5 p-5 rounded-md bg-corporative-5">
-            CSS Grid Layout (aka “Grid”), is a two-dimensional grid-based layout
-            system that aims to do nothing less than completely change the way
-            we design grid-based user interfaces. CSS has always been used to
-            lay out our web pages, but it’s never done a very good job of it.
-            First, we used tables, then floats, positioning and inline-block,
-            but all of these methods were essentially hacks and left out a lot
-            of important functionality (vertical centering, for instance).
-            Flexbox helped out, but it’s intended for simpler one-dimensional
-            layouts, not complex two-dimensional ones (Flexbox and Grid actually
-            work very well together). Grid is the very first CSS module created
-            specifically to solve the layout problems we’ve all been hacking our
-            way around for as long as we’ve been making websites.
-          </p>
+      <div className="p-4 text-gray-200">
+        <span className="text-xl">Introduction</span>
+        <div className="mt-5 p-5 rounded-md bg-corporative-5">
+          <ReactMarkdown source={mdTestSource} />
         </div>
       </div>
     </div>
